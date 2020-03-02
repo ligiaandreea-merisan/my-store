@@ -1,0 +1,162 @@
+<div class="all-page">
+  <app-top-bar></app-top-bar>
+
+  <div class="container-fluid p-4">
+    <!--<form class="needs-validation was-validated" novalidate>-->
+    <form [formGroup]="checkoutForm"
+          class="needs-validation">
+      <div class="form-row mb-3">
+        <div class="col">
+          <label for="validationTooltip01">First name</label>
+          <input type="text" formControlName="firstName" class="form-control" id="validationTooltip01" placeholder="First name"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('firstName').invalid,
+                    'is-valid': submitted && checkoutForm.get('firstName').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.firstName">
+              <div class="error-message" *ngIf="checkoutForm.get('firstName').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col">
+          <label for="validationTooltip02">Last name</label>
+          <input type="text" formControlName="lastName" class="form-control" id="validationTooltip02" placeholder="Last name"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('lastName').invalid,
+                    'is-valid': submitted && checkoutForm.get('lastName').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.lastName">
+              <div class="error-message" *ngIf="checkoutForm.get('lastName').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col">
+          <label for="validationTooltip03">Email</label>
+          <input type="email" formControlName="email" class="form-control" id="validationTooltip03" placeholder="Email"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('email').invalid,
+                    'is-valid': submitted && checkoutForm.get('email').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.email">
+              <div class="error-message" *ngIf="checkoutForm.get('email').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="form-row mb-3">
+        <div class="col-6">
+          <label for="validationTooltip04">Address</label>
+          <input type="text" formControlName="address" class="form-control" id="validationTooltip04" placeholder="1234 Main St"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('address').invalid,
+                    'is-valid': submitted && checkoutForm.get('address').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.address">
+              <div class="error-message" *ngIf="checkoutForm.get('address').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col">
+              <label for="validationTooltip05">Address 2</label>
+              <input type="text" formControlName="address2" class="form-control" id="validationTooltip05" placeholder="Apartment, studio, or floor"
+                     [ngClass]="{
+                        'is-invalid': submitted && checkoutForm.get('address2').invalid,
+                        'is-valid': submitted && checkoutForm.get('address2').valid
+                      }">
+              <ng-container *ngIf="submitted">
+                <div class="invalid-tooltip" *ngFor="let validation of validationMessages.address2">
+                  <div class="error-message" *ngIf="checkoutForm.get('address2').hasError(validation.type)">{{ validation.message }}</div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="col">
+              <label for="validationTooltip06">Phone number</label>
+              <input type="text" formControlName="phone" class="form-control" id="validationTooltip06" placeholder="07..."
+                     [ngClass]="{
+                        'is-invalid': submitted && checkoutForm.get('phone').invalid,
+                        'is-valid': submitted && checkoutForm.get('phone').valid
+                      }">
+              <ng-container *ngIf="submitted">
+                <div class="invalid-tooltip" *ngFor="let validation of validationMessages.phone">
+                  <div class="error-message" *ngIf="checkoutForm.get('phone').hasError(validation.type)">{{ validation.message }}</div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row mb-3">
+        <div class="form-group col-md-6">
+          <label for="validationTooltip07">City</label>
+          <input type="text" formControlName="city" class="form-control" id="validationTooltip07" placeholder="City"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('city').invalid,
+                    'is-valid': submitted && checkoutForm.get('city').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.city">
+              <div class="error-message" *ngIf="checkoutForm.get('city').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="validationTooltip08">State</label>
+          <input type="text" formControlName="state" class="form-control" id="validationTooltip08" placeholder="State"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('state').invalid,
+                    'is-valid': submitted && checkoutForm.get('state').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.state">
+              <div class="error-message" *ngIf="checkoutForm.get('state').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="validationTooltip09">Zip</label>
+          <input type="text" formControlName="zip" class="form-control" id="validationTooltip09" placeholder="Zip code"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('zip').invalid,
+                    'is-valid': submitted && checkoutForm.get('zip').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.zip">
+              <div class="error-message" *ngIf="checkoutForm.get('zip').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <div class="form-check ">
+          <input class="form-check-input" formControlName="check" type="checkbox" id="validationTooltip10"
+                 [ngClass]="{
+                    'is-invalid': submitted && checkoutForm.get('check').invalid,
+                    'is-valid': submitted && checkoutForm.get('check').valid
+                  }">
+          <ng-container *ngIf="submitted">
+            <div class="invalid-tooltip" *ngFor="let validation of validationMessages.check">
+              <div class="error-message" *ngIf="checkoutForm.get('check').hasError(validation.type)">{{ validation.message }}</div>
+            </div>
+          </ng-container>
+          <label class="form-check-label" for="validationTooltip10">
+            Agree to terms and conditions
+          </label>
+        </div>
+      </div>
+
+      <div class="container-fluid p-4 text-center">
+        <button class="btn btn-danger btn-lg p-3" (click)="onSubmit()">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>

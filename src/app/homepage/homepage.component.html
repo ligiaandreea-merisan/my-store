@@ -1,0 +1,28 @@
+<div class="all-page">
+  <app-top-bar></app-top-bar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 p-4" *ngFor="let product of products" [routerLink]="['/products', product.id]">
+        <app-product-card [product]="product" (buy)="addToCart($event)"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+<ng-container *ngIf="userIsLoggedIn; else viewOnlyTemplate">
+
+  <h1>Hey sunt logat!</h1>
+  {{ userAuthService.getCredentials().username }}
+
+</ng-container>
+
+<ng-template #viewOnlyTemplate>
+
+  <h1>Nelogat!</h1>
+
+</ng-template>
+-->

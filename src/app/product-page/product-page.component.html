@@ -1,0 +1,65 @@
+<div class="all-page">
+
+  <app-top-bar></app-top-bar>
+
+  <div class="container-fluid" *ngIf="product">
+
+    <div class="row p-4">
+      <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+        <div class="cover p-4 shadow mb-5 bg-light rounded-lg" [style.backgroundImage]="'url(' + product.image + ')'" style="width: 65%;
+                                                                                     height: 550px;
+                                                                                     background-repeat: no-repeat;
+                                                                                     background-position: center;
+                                                                                     background-size: cover;"></div>
+      </div>
+
+      <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h1 class="card-title p-4">{{ product.title }}</h1>
+          <h3 class="price p-4">{{ product.price }}</h3>
+          <a href="#" class="btn btn-danger btn-lg d-flex justify-content-center align-items-center" style="width: 100px; height: 50px;">Buy</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row p-3 shadow mb-5 bg-light rounded-lg">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <nav>
+          <div class="nav nav-tabs d-flex flex-row justify-content-center align-items-center" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active p-1" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true"><h3>Info</h3></a>
+            <a class="nav-item nav-link p-1" id="nav-specifications-tab" data-toggle="tab" href="#nav-specifications" role="tab" aria-controls="nav-specifications" aria-selected="false"><h3>Specifications</h3></a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">{{ product.info }}</div>
+          <div class="tab-pane fade" id="nav-specifications" role="tabpanel" aria-labelledby="nav-specifications-tab">
+            <table class="table table-striped">
+              <tbody>
+              <tr>
+                <td>Decoration type:</td>
+                <td>{{ product.specs.decorationType }}</td>
+              </tr>
+              <tr>
+                <td>Color:</td>
+                <td>{{ product.specs.color }}</td>
+              </tr>
+              <tr>
+                <td>Material:</td>
+                <td>{{ product.specs.material }}</td>
+              </tr>
+              <tr>
+                <td>Pieces included:</td>
+                <td>{{ product.specs.piecesIncluded }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+
+  </div>
+</div>

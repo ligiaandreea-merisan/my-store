@@ -1,0 +1,55 @@
+<div class="all-page">
+  <app-top-bar></app-top-bar>
+
+  <div class="container-fluid p-4" *ngIf="items && items.length > 0">
+    <h1 class="p-3">Cart</h1>
+    <table class="table table-striped p-4">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">YOUR PRODUCTS</th>
+          <th scope="col">QUANTITY</th>
+          <th scope="col">PRICE / ONE ITEM</th>
+          <th scope="col">TOTAL</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of items">
+          <tr>
+            <td>
+              <div class="container-fluid p-0 d-flex flex-row justify-content-start align-items-center">
+                <img class="pr-1" src="{{ item.product.image }}" width="50px" height="50px">
+                <h3>{{ item.product.title }}</h3>
+              </div>
+            </td>
+            <td class="pr-2 align-middle">
+              <input class="form-control" type="text" [(ngModel)]="item.quantity" placeholder="" aria-label="" aria-describedby="basic-addon2" value="{{ item.quantity }}" required>
+            </td>
+            <td class="align-middle">{{ item.product.price }}</td>
+            <td class="align-middle">{{ itemSum(item) }}</td>
+            <td class="align-middle">
+              <button type="button btn-lg" class="close" aria-label="Close" (click)="deleteItem(item)">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="align-middle">{{ totalSum() }}</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="container-fluid p-4 text-center" *ngIf="items && items.length > 0">
+    <button type="button" class="btn btn-danger btn-lg p-2" [routerLink]="['form']"><h3>Go to checkout</h3></button>
+  </div>
+
+</div>
+

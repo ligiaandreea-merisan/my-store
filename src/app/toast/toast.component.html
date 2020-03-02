@@ -1,0 +1,37 @@
+<ng-container *ngFor="let toast of toastService.toasts">
+
+  <ng-container [ngSwitch]="toast.type">
+    <ng-container *ngSwitchCase="'template1'">
+
+      <ng-container *ngTemplateOutlet="template1; context: { $implicit: toast }"></ng-container>
+
+    </ng-container>
+    <ng-container *ngSwitchCase="'template2'">
+
+      <ng-container *ngTemplateOutlet="template2; context: { $implicit: toast, x: toast }"></ng-container>
+
+    </ng-container>
+  </ng-container>
+
+
+</ng-container>
+
+
+<ng-template #template1 let-toast let-orice="context.x">
+  <ngb-toast [header]="toast.header"
+             [autohide]="true"
+             [delay]="toast.delay"
+             (hide)="toastService.remove(toast)">
+    {{toast.body}}
+  </ngb-toast>
+</ng-template>
+
+<ng-template #template2>
+  <ngb-toast [header]="toast.header"
+             [autohide]="true"
+             [delay]="toast.delay"
+             (hide)="toastService.remove(toast)">
+    <img [src]="toast.image" />
+    <div>{{toast.body}}</div>
+  </ngb-toast>
+</ng-template>
